@@ -2,8 +2,11 @@ package unam.fca.dmoviles;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.time.LocalDateTime;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,9 +26,17 @@ public class MainActivity extends AppCompatActivity {
         //Para hacer referencia a un componente del layout, utilizamos el metodo findViewById
         //y le pasamos como parametro el id correspondiente.
 
-        final TextView tv = findViewById(R.id.btn);
+        final TextView tv = findViewById(R.id.tv);
 
         final Button btn = findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+                tv.setText(LocalDateTime.now().toString());
+
+            }
+        });
 
 
         //Para cambiar el texto de tv
